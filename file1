@@ -1,4 +1,4 @@
 https://leetcode.com/problems/zigzag-conversion/solution/
-2d char array
-partial output
-2d array traversal
+  2d char array
+  2d array traversal - partial output for each row and combine
+  empty char array ( empty elements are either represented by 0 or '\u0000' )
