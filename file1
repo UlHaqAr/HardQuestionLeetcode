@@ -2,3 +2,10 @@ https://leetcode.com/problems/zigzag-conversion/solution/
   2d char array
   2d array traversal - partial output for each row and combine
   empty char array ( empty elements are either represented by 0 or '\u0000' )
+  
+https://leetcode.com/problems/reverse-integer/solution/
+  integer overflow
+  numbers are formed basically by nextNumber = currNumber * 10 + nextdigit, so you can check if nextNumber will overflow by checking currNumber and nextDigit
+  if currNumber is more than (Interger_max / 10 ), nextNumber will overflow
+  if currNumber is equal to (Interger_max / 10 ), nextNumber will overflow if nextdigit is more than 7 (Int max -> 2147483647, divide by 10, rem is 7) 
+  for negative numbers, it will be nextdigit < -8
