@@ -9,3 +9,36 @@ https://leetcode.com/problems/reverse-integer/solution/
   if currNumber is more than (Interger_max / 10 ), nextNumber will overflow
   if currNumber is equal to (Interger_max / 10 ), nextNumber will overflow if nextdigit is more than 7 (Int max -> 2147483647, divide by 10, rem is 7) 
   for negative numbers, it will be nextdigit < -8
+  
+https://leetcode.com/problems/generate-parentheses/submissions/
+  solved on my own
+  made a classic mistake of not re-initiating values in recursion loop. i did not use 'new ArrayList' and 'new StringBuilder' in getRes inner call. 
+  So 'brackets' and 'sb' variable were all processed in inner loops and then the last modified value was going to second getRes call.
+  private static void getRes(List<String> brackets, List<String> res, StringBuilder sb, String itemToAdd, int n) 
+	{
+		. . .
+		sb.append(itemToAdd);
+		brackets.remove(itemToAdd);
+		. . .
+		getRes(new ArrayList<String>(brackets), res, new StringBuilder(sb), "(",n);
+		getRes(brackets, res, sb, ")",n);
+	}
+  Look at below code
+  public static void main(String[] args) 
+	{	
+		String s = "fcvbnm,";
+		System.out.println(s.hashCode());
+		test(s+"er");
+		System.out.println(s.hashCode());
+	}
+	public static void test(String n) 
+    {
+        System.out.println(n.hashCode());
+    }
+   Output:
+    -1017614972
+    1324558641
+    -1017614972
+  The value of s is retained in the second sysout. When you send s+"er", it doesnt modify s. Instead it creates new object and sends to the function.
+  Keep this in mind when writing recursion calls.
+  
