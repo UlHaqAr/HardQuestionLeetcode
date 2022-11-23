@@ -42,3 +42,19 @@ https://leetcode.com/problems/generate-parentheses/submissions/
   The value of s is retained in the second sysout. When you send s+"er", it doesnt modify s. Instead it creates new object and sends to the function.
   Keep this in mind when writing recursion calls.
   
+  https://leetcode.com/problems/combination-sum/submissions/
+  in backtracking/recursion, when you have to add partial result to a final result, make final result a class variable. 
+  always set your variables outside the recursion call
+  	while(startIndex <= endIndex)
+        {
+            result.add(candidates[startIndex]);
+            target-=candidates[startIndex];
+            backtrack(startIndex, endIndex, candidates, result, target);
+            target+=candidates[startIndex];
+            result.remove((Integer)candidates[startIndex]);
+            startIndex++;
+        }
+  see how the variables result and target are set before recursion call and unset after it. 
+  also remember while adding this partial 'result' to a global results variable, copy over the contents of 'result' in new list and then add. lets say value 
+  of result is [2,2,4]. you added it to resultList. in next iteration value of 'result' becomes [5], then resultList also will change.
+  always do resultList.add(new ArrayList<Integer>(result))
