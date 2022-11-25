@@ -58,3 +58,6 @@ https://leetcode.com/problems/generate-parentheses/submissions/
   also remember while adding this partial 'result' to a global results variable, copy over the contents of 'result' in new list and then add. lets say value 
   of result is [2,2,4]. you added it to resultList. in next iteration value of 'result' becomes [5], then resultList also will change.
   always do resultList.add(new ArrayList<Integer>(result))
+  
+  https://leetcode.com/problems/maximum-subarray/submissions/
+  //kadanes algo -> if sum of prev array is less than zero, set currsum to zero
