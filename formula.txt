@@ -1,0 +1,11 @@
+lets say there is m*n matrix
+3*4
+a b c d
+e f g h
+i j k l
+index = row * width + col
+width = num of elements in each row
+example : g is at row 1, col 2. index in m*n array will be 6.
+row = index / width
+col = index % width
+example : g is at index 6. row = 6/4 = 1. col = 6%4 = 2.
