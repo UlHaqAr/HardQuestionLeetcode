@@ -61,3 +61,14 @@ https://leetcode.com/problems/generate-parentheses/submissions/
   
   https://leetcode.com/problems/maximum-subarray/submissions/
   //kadanes algo -> if sum of prev array is less than zero, set currsum to zero
+  
+  https://leetcode.com/problems/graph-valid-tree/solutions/539585/graph-valid-tree/
+  while building adjacency list (doesnt matter if you are using list or map) remember it works both ways.
+  example : 0->1,2,3.  2->4,5
+  while building adjacency list, it will hold total 7 entries (not just 2)
+  0-1,2,3  1-0  2-0  3-0  2-4,5  4-2  5-2
+  why so ? user can give you input like this also 1->0 , 2->0 (this is equivalent to 0->1,2) . Thats why  
+  
+  
+  
+  
