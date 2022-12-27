@@ -69,6 +69,7 @@ https://leetcode.com/problems/generate-parentheses/submissions/
   0-1,2,3  1-0  2-0  3-0  2-4,5  4-2  5-2
   why so ? user can give you input like this also 1->0 , 2->0 (this is equivalent to 0->1,2) . Thats why  
   
-  
+  https://leetcode.com/problems/find-leaves-of-binary-tree/description/
+  POST ORDER = evaluates left , then right , then root. it is useful if the result of root calculated from result of left and right child
   
   
