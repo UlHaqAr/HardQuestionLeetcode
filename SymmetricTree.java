@@ -27,59 +27,33 @@ If you take inorder traversal, it will be 2 2 N 1 2 2 N. Now run palindrome func
                2   N                      2    n
                
 Inorder gives N 4 2 1 N 5 N 1 2 4 N
+
+you need to recursively compare left and right trees at same time. Left subtree of 5 should be equal to right subtree of 5. similarily for all nodes.
+Like in a mirror, left on one side is right on other.
 */
 class Solution {
 
-    public boolean isSymmetric(TreeNode root) {
-        List<TreeNode> nums = new ArrayList();
-        inorder(root, nums);
-        return isPalindrome(nums);
+  public boolean isSymmetric(TreeNode root) {
+        if(root == null){
+            return true;
+        }
+        return compare(root.left, root.right);
     }
 
-    public void inorder(TreeNode node, List<TreeNode> nums)
-    {
-        if(node.left != null)
-        {
-            inorder(node.left, nums);
+    private boolean compare(TreeNode left, TreeNode right){
+        if(left == null && right == null){
+            return true;
         }
-        else if (node.right != null)
-        {
-            nums.add(null);
-        }
-       
-        nums.add(node);
-        
-        if(node.right != null)
-        {
-            inorder(node.right, nums);
-        }
-        else if(node.left != null)
-        {
-            nums.add(null);
-        }
-    }
-
-    public boolean isPalindrome(List<TreeNode> nums)
-    {
-        int i=0;
-        int j=nums.size()-1;
-        while(i <= j)
-        {
-            if(nums.get(i) == null && nums.get(j) == null)
-            {
-                i++;
-                j--;
-                continue;
-            }
-            if(nums.get(i) != null && nums.get(j) != null && nums.get(i).val == nums.get(j).val)
-            {
-                i++;
-                j--;
-                continue;
-            }
+        if(left != null && right == null){
             return false;
         }
-        return true;
+        if(left == null && right != null){
+            return false;
+        }
+        if(left.val == right.val){
+            return compare(left.left, right.right) && compare(left.right, right.left);
+        }
+        return false;
     }
 
     // BFS + palindrome
